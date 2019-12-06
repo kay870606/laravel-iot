@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'CommandController@index');
 
 Route::apiResource('commands', 'CommandController');
