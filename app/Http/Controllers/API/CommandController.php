@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Command;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CommandRequest;
 use Illuminate\Http\Request;
 
 class CommandController extends Controller
@@ -24,7 +25,7 @@ class CommandController extends Controller
      */
     public function index()
     {
-        //
+        return Command::orderBy('id')->get();
     }
 
     /**
@@ -33,9 +34,12 @@ class CommandController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CommandRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $command = Command::create($validated);
+        return response($command, 200)
+            ->header('Content-Type', 'text/plain');
     }
 
     /**

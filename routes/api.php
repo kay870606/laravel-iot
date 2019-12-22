@@ -16,5 +16,8 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('commands', 'API\CommandController@firstAndDelete');
+
+Route::get('commands', 'API\CommandController@index');
+Route::post('commands', 'API\CommandController@store');
+//Route::get('commands', 'API\CommandController@firstAndDelete');
 //Route::apiResource('commands', 'API\CommandController');
