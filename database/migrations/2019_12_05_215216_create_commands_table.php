@@ -15,7 +15,6 @@ class CreateCommandsTable extends Migration
     {
         Schema::create('commands', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->String('name');
             $table->integer('operation');
             $table->timestamps();
             $table->softDeletes();
