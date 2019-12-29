@@ -11,6 +11,27 @@
 |
 */
 
-Route::get('/', 'CommandController@index');
+Route::get('/', function () {
+    return redirect('commands');
+    //return view('welcome');
+});
 
 Route::apiResource('commands', 'CommandController');
+
+Route::get('lights', function () {
+   return view('lights.index');
+});
+
+Route::get('/api/lights', function () {
+    return \App\light::first();
+});
+/*Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('test', function () {
+        return 1;
+    });
+});*/

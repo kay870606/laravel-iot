@@ -19,5 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('commands', 'API\CommandController@index');
 Route::post('commands', 'API\CommandController@store');
+
+Route::get('operations', 'API\OperationController@index');
+Route::post('operations', 'API\OperationController@store');
 //Route::get('commands', 'API\CommandController@firstAndDelete');
 //Route::apiResource('commands', 'API\CommandController');

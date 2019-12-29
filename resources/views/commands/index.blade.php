@@ -2,49 +2,35 @@
 
 @section('content')
 
-    <h1 class="title">Commands</h1>
+    <h1 class="title">里程數</h1>
 
-    <form method="POST" action="/commands">
-        @csrf
+    <div class="content">
+        <p>
+            <strong>前進次數:  </strong><small>{{ $forward_count }}</small>
+        </p>
+    </div>
 
-        <div class="field">
-            <label class="label">Name</label>
-            <div class="control">
-                <input type="text" name="name" class="input" value="{{ old('name') }}" required>
-            </div>
-        </div>
-
-        <div class="field">
-            <label class="label">Operation</label>
-            <div class="control">
-                <input type="text" name="operation" class="input" value="{{ old('operation') }}" required>
-            </div>
-        </div>
-
-        <div class="field">
-            <div class="control">
-                <button type="submit" class="button is-link">Create</button>
-            </div>
-        </div>
-
-        @include ('errors')
-    </form>
+    <div class="content">
+        <p>
+            <strong>後退次數:  </strong><small>{{ $back_count }}</small>
+        </p>
+    </div>
 
     <div class="table-container">
-        <table class="table">
+        <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Operation</th>
+                <th>操作</th>
+                <th>時間</th>
             </tr>
             </thead>
             <tbody>
             @foreach ($commands as $command)
                 <tr>
                     <th>{{$command->id}}</th>
-                    <td>{{$command->name}}</td>
                     <td>{{$command->operation}}</td>
+                    <td>{{$command->updated_at}}</td>
                 </tr>
             @endforeach
             </tbody>
