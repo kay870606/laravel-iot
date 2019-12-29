@@ -2,7 +2,8 @@
 
 @section('content')
 
-    <form method="POST" action="/lights">
+    <form method="POST" action="/lights/1">
+        @method('PATCH')
         @csrf
 
         <div class="field">

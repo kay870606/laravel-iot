@@ -17,13 +17,10 @@ Route::get('/', function () {
 });
 
 Route::apiResource('commands', 'CommandController');
-
-Route::get('lights', function () {
-   return view('lights.index');
-});
+Route::apiResource('lights', 'LightController');
 
 Route::get('/api/lights', function () {
-    return \App\light::first();
+    return \App\Light::first();
 });
 /*Auth::routes();
 

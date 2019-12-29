@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\light;
+use App\Light;
 use Illuminate\Http\Request;
 
 class LightController extends Controller
@@ -14,7 +14,7 @@ class LightController extends Controller
      */
     public function index()
     {
-        //
+        return view('lights.index');
     }
 
     /**
@@ -30,7 +30,7 @@ class LightController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,10 +41,10 @@ class LightController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\light  $light
+     * @param \App\Light $light
      * @return \Illuminate\Http\Response
      */
-    public function show(light $light)
+    public function show(Light $light)
     {
         //
     }
@@ -52,10 +52,10 @@ class LightController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\light  $light
+     * @param \App\light $light
      * @return \Illuminate\Http\Response
      */
-    public function edit(light $light)
+    public function edit(Light $light)
     {
         //
     }
@@ -63,22 +63,27 @@ class LightController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\light  $light
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Light $light
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, light $light)
+    public function update(Request $request, Light $light)
     {
-        //
+        if ($light->operation === 0) {
+            $light->update(['operation' => 1]);
+        } else {
+            $light->update(['operation' => 0]);
+        }
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\light  $light
+     * @param \App\light $light
      * @return \Illuminate\Http\Response
      */
-    public function destroy(light $light)
+    public function destroy(Light $light)
     {
         //
     }

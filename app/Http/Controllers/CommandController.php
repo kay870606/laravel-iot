@@ -20,8 +20,13 @@ class CommandController extends Controller
 
         $forward_count = Command::where('operation', 0)->count();
         $back_count = Command::where('operation', 1)->count();
-
-        return view('commands.index', ['forward_count' => $forward_count, 'back_count' => $back_count, 'commands' => $commands]);
+        $count = Command::count();
+        return view('commands.index', [
+            'count'=>$count,
+            'forward_count' => $forward_count,
+            'back_count' => $back_count,
+            'commands' => $commands
+        ]);
     }
 
     /**
