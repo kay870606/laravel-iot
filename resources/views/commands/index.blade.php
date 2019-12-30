@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1 class="title">里程數</h1>
+    <h1 class="title">行車紀錄</h1>
 
     <div class="content">
         <p>

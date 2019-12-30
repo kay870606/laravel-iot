@@ -18,7 +18,7 @@ class LightsTableSeeder extends Seeder
         DB::table('lights')->truncate();
 
         foreach ($items as $item) {
-            \App\light::create($item);
+            \App\Light::create($item);
         }
     }
 }
