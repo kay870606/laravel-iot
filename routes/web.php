@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return redirect('commands');
-    //return view('welcome');
+    //return redirect('commands');
+    return view('welcome');
 });
 
 Route::apiResource('commands', 'CommandController');
@@ -22,12 +22,12 @@ Route::apiResource('lights', 'LightController');
 Route::get('/api/lights', function () {
     return \App\Light::first();
 });
-/*Auth::routes();
 
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::middleware('auth')->group(function () {
+/*Route::middleware('auth')->group(function () {
     Route::get('test', function () {
         return 1;
     });

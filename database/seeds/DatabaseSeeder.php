@@ -16,11 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call(CommandsTableSeeder::class);
         $this->call(LightsTableSeeder::class);
         $this->call(OperationsTableSeeder::class);
-        /*$this->call(SubcategoriesTableSeeder::class);
-        $this->call(BeaconsTableSeeder::class);
-        $this->call(CategoryBeaconsTableSeeder::class);
-        $this->call(ActivitiesTableSeeder::class);
-        $this->call(CategoryActivitiesTableSeeder::class);*/
+        $this->call(ManagersTableSeeder::class);
+
         Schema::enableForeignKeyConstraints();
     }
 }

@@ -46,6 +46,11 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+
+        'manager' => [
+            'driver' => 'session',
+            'provider' => 'managers',
+        ]
     ],
 
     /*
@@ -75,6 +80,11 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        'managers' => [
+            'driver' => 'eloquent',
+            'model' => App\Manager::class,
+        ],
     ],
 
     /*
@@ -95,6 +105,12 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'managers' => [
+            'provider' => 'managers',
             'table' => 'password_resets',
             'expire' => 60,
         ],
